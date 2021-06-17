@@ -1,0 +1,21 @@
+<div class="w3-content">
+  <app-searchbar class="searchbar"></app-searchbar>
+
+  <div class="searchResults w3-row-padding w3-padding-16">
+
+    <div class="w3-white w3-margin-bottom resultCard" *ngFor="let result of searchResults">
+      <img [src]="result.pictures[0]" alt="Norway">
+      <div>
+        <h3 style="margin-bottom: 0">{{result.name}}</h3>
+        <span class="w3-opacity">{{result.city}}</span>
+        <h4>From €{{result.minPrice}}</h4>
+        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i></p>
+        <button class="w3-button w3-black w3-margin-top" style="float: right; padding: 20px" routerLink="/hotel/{{result._id}}">
+          Show availability
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

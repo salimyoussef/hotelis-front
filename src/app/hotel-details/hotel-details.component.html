@@ -1,0 +1,88 @@
+<div class="w3-content">
+  <app-searchbar></app-searchbar>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main w3-white" style="margin-left:260px; padding: 20px">
+
+    <!-- Push down content on small screens -->
+    <div class="w3-hide-large" style="margin-top:80px"></div>
+
+    <!-- Slideshow Header -->
+    <div class="w3-container" id="hotel">
+      <h2 class="w3-text-red">{{hotel.name}}</h2>
+      <div class="w3-display-container" *ngFor="let picture of hotel.pictures; index as i"
+      [ngClass]="{'mySlides': selectedSlide !== i}">
+        <img [src]="picture" style="width:100%;margin-bottom:-6px">
+      </div>
+    </div>
+    <div class="w3-row-padding w3-section">
+      <div class="w3-col s3" *ngFor="let picture of hotel.pictures; index as i">
+        <img class="demo w3-opacity w3-hover-opacity-off" [src]="picture" style="width:100%;cursor:pointer"
+        (click)="selectedSlide = i" title="Hotel room">
+      </div>
+    </div>
+
+    <p>{{hotel.description}}</p>
+    <hr>
+
+    <h3><strong>Availability</strong></h3>
+    <table class="w3-table">
+        <thead>
+          <th>Room type</th>
+          <th>Price per night</th>
+          <th>Options</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of hotel.rooms">
+            <td>{{ room.roomType }}</td>
+            <td>€ {{ room.pricePerNight }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let option of room.roomOptions">{{ option }}</li>
+              </ul>
+            </td>
+            <th><button class="w3-button w3-black">Choose room</button></th>
+          </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <div class="w3-container">
+      <h4><strong>Rules</strong></h4>
+      <div class="w3-row w3-large">
+        <div class="w3-col s6">
+          <p><i class="fa fa-fw fa-clock-o"></i> Check In: After 3PM</p>
+          <p><i class="fa fa-fw fa-clock-o"></i> Check Out: 12PM</p>
+        </div>
+        <div class="w3-col s6">
+          <p>Payment methods accepted:<br/> <i class="fa fa-credit-card w3-large"></i>
+            &nbsp;<i class="fa fa-cc-mastercard w3-large"></i>
+            &nbsp;<i class="fa fa-cc-amex w3-large"></i>
+            &nbsp;<i class="fa fa-cc-visa w3-large"></i>
+            &nbsp;<i class="fa fa-cc-paypal w3-large"></i></p>
+        </div>
+      </div>
+      <hr>
+
+      <h4><strong>Amenities</strong></h4>
+      <div class="w3-row w3-large">
+        <div class="w3-col s6">
+          <p><i class="fa fa-fw fa-shower"></i> Shower</p>
+          <p><i class="fa fa-fw fa-wifi"></i> WiFi</p>
+          <p><i class="fa fa-fw fa-tv"></i> TV</p>
+        </div>
+        <div class="w3-col s6">
+          <p><i class="fa fa-fw fa-cutlery"></i> Kitchen</p>
+          <p><i class="fa fa-fw fa-thermometer"></i> Heating</p>
+          <p><i class="fa fa-fw fa-wheelchair"></i> Accessible</p>
+        </div>
+      </div>
+
+    </div>
+    <hr>
+
+  <!-- End page content -->
+  </div>
+
+</div>

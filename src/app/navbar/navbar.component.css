@@ -1,0 +1,5 @@
+.w3-bar {
+  overflow: auto;
+  position: relative;
+  z-index: 10;
+}
